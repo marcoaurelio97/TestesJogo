@@ -64,9 +64,8 @@ public class Teste {
         jogo.anota(new Resultado(new Participante("Vinicius"), 897));
 
         Juiz juiz = new Juiz();
-        juiz.julga(jogo)
+        juiz.julga(jogo);
 
         Assert.assertEquals(897, juiz.getPrimeiroColocado(), 0.00001);
     }
-
 }
