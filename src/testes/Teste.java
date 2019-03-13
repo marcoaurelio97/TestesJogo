@@ -34,4 +34,18 @@ public class Teste {
         Assert.assertEquals("Bruno", jogo.getResultados().get(2).getParticipante().getNome());
         Assert.assertEquals(15, jogo.getResultados().get(1).getMetrica(), 0.00001);
     }
+
+    @Test
+    public void deveTerApenasUmResultadoPorParticipante() {
+
+        Jogo jogo = new Jogo("Basquete");
+
+        Assert.assertEquals(0, jogo.getResultados().size());
+        
+        jogo.anota(new Resultado(new Participante("Vinicius"), 105));
+        jogo.anota(new Resultado(new Participante("Vinicius"), 235));
+        
+        Assert.assertEquals(1, jogo.getResultados().size());
+        Assert.assertEquals("Vinicius", jogo.getResultados().get(0).getParticipante().getNome());
+    }
 }
